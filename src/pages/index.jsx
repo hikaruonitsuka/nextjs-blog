@@ -1,32 +1,27 @@
-import Layout from "@/components/Layout";
-import { getPostsData } from "@/lib/post";
 import Link from "next/link";
+import { client } from "../lib/client";
 
-// SSGの場合
-export async function getStaticProps() {
-  const allPostsData = getPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
-
-export default function Home({ allPostsData }) {
+export default function Home({ blog }) {
   return (
-    <Layout>
+    <div>
       <ul>
-        {allPostsData.map(({ id, title, date }) => (
-          <li key={id}>
-            <Link href={`/posts/${id}`}>
-              <article>
-                <h2>{title}</h2>
-                <time dateTime={`${date}`}>{date}</time>
-              </article>
-            </Link>
+        {blog.map((blog) => (
+          <li key={blog.id}>
+            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
           </li>
         ))}
       </ul>
-    </Layout>
+    </div>
   );
 }
+
+// SSG出力
+export const getStaticProps = async () => {
+  const data = await client.get({ endpoint: "blog" });
+
+  return {
+    props: {
+      blog: data.contents,
+    },
+  };
+};
