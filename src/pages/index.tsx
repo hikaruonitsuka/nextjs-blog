@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { client } from '@/lib/client';
 import type { Blog } from '@/types/blog';
 import Wrapper from '@/components/layout/Wrapper';
+import Inner from '@/components/layout/Inner';
 
-// APIリクエスト
 export const getStaticProps = async () => {
   const data = await client.get({ endpoint: 'blog' });
 
@@ -18,16 +18,20 @@ type Props = {
   blog: Blog[];
 };
 
-export default function Home({ blog }) {
-  return (
-    <Wrapper>
-      <ul>
+const Home = ({ blog }: Props) => (
+  <Wrapper>
+    <Inner>
+      <ul className='flex flex-col gap-4'>
         {blog.map((blog) => (
           <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
+            <Link className='block text-xl font-bold' href={`/blog/${blog.id}`}>
+              {blog.title}
+            </Link>
           </li>
         ))}
       </ul>
-    </Wrapper>
-  );
-}
+    </Inner>
+  </Wrapper>
+);
+
+export default Home;

@@ -2,5 +2,8 @@ export type Blog = {
   id: string;
   title: string;
   body: string;
-  category: string;
+  category: {
+    name: string;
+  };
+  publishedAt: string;
 };

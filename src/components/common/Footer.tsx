@@ -1,10 +1,15 @@
-/**
- * 共通フッター
- */
-const Footer = () => {
+import Inner from '../layout/Inner';
+
+type Props = {
+  children: React.ReactNode;
+};
+
+const Footer: React.FC<Props> = () => {
   return (
     <footer>
-      <small>2023 oni</small>
+      <Inner>
+        <small>2023 oni</small>
+      </Inner>
     </footer>
   );
 };
