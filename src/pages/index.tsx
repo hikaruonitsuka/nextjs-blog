@@ -1,8 +1,13 @@
 import Link from 'next/link';
 import { client } from '@/lib/client';
 import type { Blog } from '@/types/blog';
-import Wrapper from '@/components/layout/Wrapper';
+import Layout from '@/components/layout/Layout';
 import Inner from '@/components/layout/Inner';
+import normalizeTime from '@/lib/normalizeTime';
+
+type Props = {
+  blog: Blog[];
+};
 
 export const getStaticProps = async () => {
   const data = await client.get({ endpoint: 'blog' });
@@ -14,24 +19,26 @@ export const getStaticProps = async () => {
   };
 };
 
-type Props = {
-  blog: Blog[];
-};
-
 const Home = ({ blog }: Props) => (
-  <Wrapper>
+  <Layout>
     <Inner>
-      <ul className='flex flex-col gap-4'>
+      <div className='mt-8 grid grid-cols-repeat gap-8 sm:grid-cols-2 md:grid-cols-3'>
         {blog.map((blog) => (
-          <li key={blog.id}>
-            <Link className='block text-xl font-bold' href={`/blog/${blog.id}`}>
-              {blog.title}
-            </Link>
-          </li>
+          <Link
+            className='flex aspect-square flex-col justify-center gap-4 rounded-xl p-6 transition duration-300 hover:scale-105 dark:hover:bg-dark-black-secondary'
+            href={`/blog/${blog.id}`}
+            key={blog.id}
+          >
+            <span className='aspect-square self-center text-4xl'>{blog.icon}</span>
+            <h2 className='text-lg font-bold'>{blog.title}</h2>
+            <time className='text-sm' dateTime={normalizeTime(blog.publishedAt)}>
+              {normalizeTime(blog.publishedAt)}
+            </time>
+          </Link>
         ))}
-      </ul>
+      </div>
     </Inner>
-  </Wrapper>
+  </Layout>
 );
 
 export default Home;

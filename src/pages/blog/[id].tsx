@@ -1,5 +1,5 @@
 import Inner from '@/components/layout/Inner';
-import Wrapper from '@/components/layout/Wrapper';
+import Layout from '@/components/layout/Layout';
 import { client } from '@/lib/client';
 import { Blog } from '@/types/blog';
 
@@ -26,7 +26,7 @@ export const getStaticProps = async (context) => {
 };
 
 const BlogId = ({ blog }: Props) => (
-  <Wrapper>
+  <Layout>
     <Inner>
       <article>
         <h1>{blog.title}</h1>
@@ -39,7 +39,7 @@ const BlogId = ({ blog }: Props) => (
         />
       </article>
     </Inner>
-  </Wrapper>
+  </Layout>
 );
 
 export default BlogId;

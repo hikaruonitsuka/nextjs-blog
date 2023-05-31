@@ -1,9 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'media',
+  darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
+      colors: {
+        'light-black': '#1a2947',
+        'dark-white': '#ebeef5',
+        'dark-black-primary': '#25282e',
+        'dark-black-secondary': '#292c33',
+      },
       fontFamily: {
         body: [
           'Poppins',
@@ -20,6 +26,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         100: '100%',
+        repeat: 'repeat(auto-fit, minmax(234px, 1fr))',
       },
     },
   },

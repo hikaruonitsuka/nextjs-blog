@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const Wrapper: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div className='grid min-h-screen grid-cols-100 grid-rows-layout'>
       <Header />
@@ -15,4 +15,4 @@ const Wrapper: React.FC<Props> = ({ children }) => {
   );
 };
 
-export default Wrapper;
+export default Layout;

@@ -1,10 +1,6 @@
 import Inner from '../layout/Inner';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-const Footer: React.FC<Props> = () => {
+const Footer = () => {
   return (
     <footer>
       <Inner>
