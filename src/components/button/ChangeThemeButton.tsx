@@ -10,14 +10,13 @@ export const ChangeThemeButton: React.FC = () => {
 
   return (
     <button
+      className='rounded-full p-2 transition duration-300 hover:scale-110 hover:bg-secondary-50 dark:hover:bg-secondary-900'
       type='button'
       aria-label='ダークモードの切り替えボタン'
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       {mounted && (
-        <>
-          {theme === 'dark' ? <BsSunFill size={'1.5rem'} /> : <BsMoonStarsFill size={'1.5rem'} />}
-        </>
+        <>{theme === 'dark' ? <BsSunFill size={'18px'} /> : <BsMoonStarsFill size={'1.2rem'} />}</>
       )}
     </button>
   );

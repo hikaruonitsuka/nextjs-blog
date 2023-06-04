@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Layout from '@/components/Layout';
 
 const Document = () => {
   return (
@@ -9,7 +10,7 @@ const Document = () => {
           rel='stylesheet'
         ></link>
       </Head>
-      <body className='font-body text-light-black dark:bg-dark-black-primary dark:text-dark-white'>
+      <body className='font-body text-body-black dark:text-body-white dark:bg-primary-950'>
         <Main />
         <NextScript />
       </body>

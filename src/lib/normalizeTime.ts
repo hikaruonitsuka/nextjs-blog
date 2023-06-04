@@ -11,7 +11,7 @@ dayjs.extend(timezone);
  * @returns YYYY-MM-DD形式で値を返す
  */
 const normalizeTime = (time) => {
-  return dayjs.utc(time).tz('Asia/Tokyo').format('YYYY-MM-DD');
+	return dayjs.utc(time).tz('Asia/Tokyo').format('YYYY-MM-DD');
 };
 
 export default normalizeTime;

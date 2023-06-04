@@ -1,10 +1,8 @@
+import { Post } from '@/types/post';
+
 export type Blog = {
-  id: string;
-  title: string;
-  body: string;
-  category: {
-    name: string;
-  };
-  publishedAt: string;
-  icon: string;
+	contents: Post[];
+	totalCount: number;
+	offset: number;
+	limit: number;
 };

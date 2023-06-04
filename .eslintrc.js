@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['next', 'prettier', 'plugin:tailwindcss/recommended'],
+  extends: ['next', 'prettier'],
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.js'],
