@@ -3,11 +3,12 @@ import hljs from 'highlight.js';
 import { NextPage } from 'next';
 import { client } from '@/lib/client';
 import { Post } from '@/types/post';
-import Category from '@/components/Category';
+import { PostCategory } from '@/components/PostCategory';
 import Layout from '@/components/Layout';
 import Inner from '@/components/Inner';
 import PublishDate from '@/components/PublishDate';
 import UpdateDate from '@/components/UpdateDate';
+import { NextSeo } from 'next-seo';
 
 type PostPageProps = {
   post: Post;
@@ -16,6 +17,14 @@ type PostPageProps = {
 const PostPage: NextPage<PostPageProps> = ({ post }) => {
   return (
     <Layout>
+      <NextSeo
+        title={post.title}
+        description={post.description}
+        openGraph={{
+          title: `${post.title}`,
+          description: `${post.description}`,
+        }}
+      />
       <Inner>
         <article className='mt-10'>
           <div className='flex items-center gap-4'>
@@ -30,9 +39,9 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
           </div>
           <h1 className='mt-4 text-2xl font-bold leading-normal'>{post.title}</h1>
           {post.category.length > 0 && (
-            <div className='mt-4 flex gap-2'>
+            <div className='mt-4 flex flex-wrap items-center gap-2'>
               {post.category.map((category) => (
-                <Category key={category.id} category={category.name} />
+                <PostCategory key={category.id} name={category.name} />
               ))}
             </div>
           )}
@@ -55,7 +64,7 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async (context: any) => {
   const id = context.params.id;
   const data = await client.get({ endpoint: 'blog', contentId: id });
 

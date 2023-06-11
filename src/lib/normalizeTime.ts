@@ -10,8 +10,8 @@ dayjs.extend(timezone);
  * @param time microCMSから取得した公開日など
  * @returns YYYY-MM-DD形式で値を返す
  */
-const normalizeTime = (time) => {
-	return dayjs.utc(time).tz('Asia/Tokyo').format('YYYY-MM-DD');
+const normalizeTime = (time: string) => {
+  return dayjs.utc(time).tz('Asia/Tokyo').format('YYYY-MM-DD');
 };
 
 export default normalizeTime;

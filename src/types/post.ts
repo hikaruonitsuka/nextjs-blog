@@ -1,15 +1,13 @@
-export type Post = {
-	totalCount: number;
-	id: string;
-	title: string;
-	body: string;
-	category: Category[];
-	publishedAt: string;
-	updatedAt: string;
-	icon: string;
-};
+import { Category } from '@/types/category';
 
-export type Category = {
-	id: string;
-	name: string;
+export type Post = {
+  totalCount: number;
+  id: string;
+  title: string;
+  description: string;
+  body: string;
+  category: Category[];
+  publishedAt: string;
+  updatedAt: string;
+  icon: string;
 };
