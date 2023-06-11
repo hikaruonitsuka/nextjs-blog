@@ -7,7 +7,7 @@ const config = {
 };
 
 const SEO: DefaultSeoProps = {
-  titleTemplate: `%s | ${config.siteName}`,
+  titleTemplate: `%s - ${config.siteName}`,
   defaultTitle: config.siteName,
   themeColor: '#000',
   openGraph: {

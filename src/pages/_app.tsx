@@ -6,7 +6,7 @@ import SEO from '@/lib/seoConfig';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider attribute='class'>
+    <ThemeProvider attribute='class' enableSystem={true}>
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </ThemeProvider>

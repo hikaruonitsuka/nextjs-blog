@@ -5,10 +5,12 @@
 :root {
 	--highlightJsBg: #f4f6f7;
 	--highlightJsColor: #545454;
+	--linkColor: #1d4ed8;
 
 	&.dark {
 		--highlightJsBg: #1d1f21;
 		--highlightJsColor: #f8f8f2;
+		--linkColor: #3b82f6;
 	}
 }
 
@@ -43,6 +45,17 @@
 
 	:where(h6) {
 		font-size: .875em;
+	}
+
+	:where(a) {
+		color: var(--linkColor);
+		transition: opacity .3s;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				opacity: .6;
+			}
+		}
 	}
 
 	:where(div[data-filename]) {

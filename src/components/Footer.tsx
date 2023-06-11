@@ -2,7 +2,7 @@ import Inner from './Inner';
 
 const Footer = () => {
 	return (
-		<footer className='mt-10'>
+		<footer className='mt-20'>
 			<Inner>
 				<small>©︎ 2023 oni.log</small>
 			</Inner>
