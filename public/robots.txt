@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: undefined
+Host: https://oni-log.vercel.app
 
 # Sitemaps
-Sitemap: undefined/sitemap.xml
+Sitemap: https://oni-log.vercel.app/sitemap.xml
