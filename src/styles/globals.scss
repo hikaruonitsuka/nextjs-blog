@@ -16,6 +16,7 @@
 
 .single {
 	line-height: 2;
+	word-wrap: break-word;
 
 	& > :where(*) + :where(*) {
 		margin-top: 2em;
