@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import { client } from '@/lib/client';
+import { client } from '@/utils/client';
 import { Post } from '@/types/post';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
@@ -7,12 +7,14 @@ import Inner from '@/components/Inner';
 import PublishDate from '@/components/PublishDate';
 import UpdateDate from '@/components/UpdateDate';
 import { NextSeo } from 'next-seo';
+import { SITE_NAME } from '@/config';
 
 type Props = { post: Post[] };
 
+
 const metaTags = {
   title: 'HOME',
-	ogTitle: process.env.NEXT_PUBLIC_SITE_NAME,
+  ogTitle: SITE_NAME,
   description: 'おにの備忘録ブログです',
 };
 

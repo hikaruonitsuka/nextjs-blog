@@ -1,9 +1,10 @@
 import { DefaultSeoProps } from 'next-seo';
+import { SITE_NAME, TWITTER_USER_ACCOUNT, BASE_URL } from '@/config';
 
 const config = {
-  siteName: process.env.NEXT_PUBLIC_SITE_NAME,
-  twitterAccount: process.env.NEXT_PUBLIC_TWITTER_USER_ACCOUNT,
-  url: process.env.NEXT_PUBLIC_API_BASE_URL,
+  siteName: SITE_NAME,
+  twitterAccount: TWITTER_USER_ACCOUNT,
+  url: BASE_URL,
 };
 
 const SEO: DefaultSeoProps = {

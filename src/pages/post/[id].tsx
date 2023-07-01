@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio';
 import hljs from 'highlight.js';
 import { NextPage } from 'next';
-import { client } from '@/lib/client';
+import { client } from '@/utils/client';
 import { Post } from '@/types/post';
 import { PostCategory } from '@/components/PostCategory';
 import Layout from '@/components/Layout';
@@ -65,6 +65,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context: any) => {
+  // 本文記事
   const id = context.params.id;
   const data = await client.get({ endpoint: 'blog', contentId: id });
 

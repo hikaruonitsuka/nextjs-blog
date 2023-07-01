@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://oni-log.vercel.app</loc><lastmod>2023-06-25T14:43:21.815Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://oni-log.vercel.app/post/m0shl_696s8</loc><lastmod>2023-06-25T14:43:21.815Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://oni-log.vercel.app/post/dark-mode</loc><lastmod>2023-06-25T14:43:21.815Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://oni-log.vercel.app/post/next-seo</loc><lastmod>2023-06-25T14:43:21.815Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://oni-log.vercel.app/post/create-blog</loc><lastmod>2023-06-25T14:43:21.815Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://oni-log.vercel.app</loc><lastmod>2023-07-01T05:45:27.746Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://oni-log.vercel.app/post/javascript-methods</loc><lastmod>2023-07-01T05:45:27.746Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://oni-log.vercel.app/post/branching-objects</loc><lastmod>2023-07-01T05:45:27.746Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://oni-log.vercel.app/post/dark-mode</loc><lastmod>2023-07-01T05:45:27.746Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://oni-log.vercel.app/post/next-seo</loc><lastmod>2023-07-01T05:45:27.746Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://oni-log.vercel.app/post/create-blog</loc><lastmod>2023-07-01T05:45:27.746Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

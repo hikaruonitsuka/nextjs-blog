@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
 import { Analytics } from '@vercel/analytics/react';
-import SEO from '@/lib/seoConfig';
+import SEO from '@/utils/seoConfig';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (

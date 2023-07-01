@@ -1,4 +1,4 @@
-import normalizeTime from '@/lib/normalizeTime';
+import normalizeTime from '@/utils/normalizeTime';
 import { MdUpdate } from 'react-icons/md';
 
 type Date = {
