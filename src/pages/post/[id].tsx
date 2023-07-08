@@ -1,20 +1,17 @@
-import * as cheerio from 'cheerio';
-import hljs from 'highlight.js';
-import { NextPage } from 'next';
-import { client } from '@/utils/client';
-import { Post } from '@/types/post';
-import { PostCategory } from '@/components/PostCategory';
+import { NextSeo } from 'next-seo';
+import { getStaticPaths, getStaticProps } from '@/feature/post/hooks/useGetPost';
+import type { Post, Category } from '@/types/post';
 import Layout from '@/components/Layout';
 import Inner from '@/components/Inner';
 import PublishDate from '@/components/PublishDate';
 import UpdateDate from '@/components/UpdateDate';
-import { NextSeo } from 'next-seo';
+import { PostCategory } from '@/components/PostCategory';
 
-type PostPageProps = {
+type Props = {
   post: Post;
 };
 
-const PostPage: NextPage<PostPageProps> = ({ post }) => {
+const PostPage = ({ post }: Props) => {
   return (
     <Layout>
       <NextSeo
@@ -57,31 +54,5 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
   );
 };
 
-export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: 'blog' });
-  const paths = data.contents.map((content: Post) => `/post/${content.id}`);
-
-  return { paths, fallback: false };
-};
-
-export const getStaticProps = async (context: any) => {
-  // 本文記事
-  const id = context.params.id;
-  const data = await client.get({ endpoint: 'blog', contentId: id });
-
-  const $ = cheerio.load(data.body);
-  $('pre code').each((_, elm) => {
-    const result = hljs.highlightAuto($(elm).text());
-    $(elm).html(result.value);
-    $(elm).addClass('hljs');
-  });
-  data.body = $.html();
-
-  return {
-    props: {
-      post: data,
-    },
-  };
-};
-
 export default PostPage;
+export { getStaticProps, getStaticPaths };

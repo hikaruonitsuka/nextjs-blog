@@ -1,16 +1,15 @@
 import { GetStaticProps, NextPage } from 'next';
-import { client } from '@/utils/client';
-import { Post } from '@/types/post';
+import type { Post } from '@/types/post';
+import { NextSeo } from 'next-seo';
+import { getStaticProps } from '@/feature/index/hooks/useGetPost';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
 import Inner from '@/components/Inner';
 import PublishDate from '@/components/PublishDate';
 import UpdateDate from '@/components/UpdateDate';
-import { NextSeo } from 'next-seo';
 import { SITE_NAME } from '@/config';
 
 type Props = { post: Post[] };
-
 
 const metaTags = {
   title: 'HOME',
@@ -18,7 +17,7 @@ const metaTags = {
   description: 'おにの備忘録ブログです',
 };
 
-const Home: NextPage<Props> = ({ post }: Props) => {
+const Home = ({ post }: Props) => {
   return (
     <Layout>
       <NextSeo
@@ -33,21 +32,21 @@ const Home: NextPage<Props> = ({ post }: Props) => {
       {post.length > 0 ? (
         <Inner>
           <div className='mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3'>
-            {post.map((post: Post) => (
+            {post.map((post) => (
               <Link
                 className='flex flex-col justify-start gap-4 rounded-xl bg-secondary-50 p-6 transition duration-300 hover:scale-105 dark:bg-secondary-900 sm:aspect-square'
                 href={`/post/${post.id}`}
                 key={post.id}
               >
                 <span className='aspect-square self-center text-4xl'>{post.icon}</span>
-                <span className='flex flex-grow flex-col justify-between'>
+                <div className='flex flex-grow flex-col justify-between'>
                   <h2 className='font-bold'>{post.title}</h2>
                   {post.publishedAt === post.updatedAt ? (
                     <PublishDate date={post.publishedAt} />
                   ) : (
                     <UpdateDate date={post.updatedAt} />
                   )}
-                </span>
+                </div>
               </Link>
             ))}
           </div>
@@ -61,14 +60,6 @@ const Home: NextPage<Props> = ({ post }: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.get({ endpoint: 'blog' });
-
-  return {
-    props: {
-      post: data.contents,
-    },
-  };
-};
-
 export default Home;
+
+export { getStaticProps };

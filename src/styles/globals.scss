@@ -3,13 +3,9 @@
 @tailwind utilities;
 
 :root {
-	--highlightJsBg: #f4f6f7;
-	--highlightJsColor: #545454;
 	--linkColor: #1d4ed8;
 
 	&.dark {
-		--highlightJsBg: #1d1f21;
-		--highlightJsColor: #f8f8f2;
 		--linkColor: #3b82f6;
 	}
 }
@@ -88,101 +84,4 @@
 		background-color: #3e424c;
 		border-radius: 4px;
 	}
-}
-
-/*!
-  Theme: a11y-light
-  Author: @ericwbailey
-  Maintainer: @ericwbailey
-
-  Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
-*/
-pre code.hljs {
-	display: block;
-	padding: 1em;
-	overflow-x: auto;
-	border-radius: 8px;
-}
-
-code.hljs {
-	padding: 3px 5px;
-}
-
-.hljs {
-	--commentQuote: #696969;
-	--selectors: #d91e18;
-	--types: #aa5d00;
-	--symbols: green;
-	--sectionTitle: #007faa;
-	--keyboards: #7928a1;
-
-	color: var(--highlightJsColor);
-	background: var(--highlightJsBg);
-}
-
-.dark {
-	.hljs {
-		--commentQuote: #d4d0ab;
-		--selectors: #ffa07a;
-		--types: #f5ab35;
-		--symbols: #abe338;
-		--sectionTitle: #00e0e0;
-		--keyboards: #dcc6e0;
-	}
-
-	.hljs-attribute {
-		color: gold;
-	}
-}
-
-.hljs-comment,
-.hljs-quote {
-	color: var(--commentQuote);
-}
-
-.hljs-deletion,
-.hljs-name,
-.hljs-regexp,
-.hljs-selector-class,
-.hljs-selector-id,
-.hljs-tag,
-.hljs-template-variable,
-.hljs-variable {
-	color: var(--selectors);
-}
-
-.hljs-attribute,
-.hljs-built_in,
-.hljs-link,
-.hljs-literal,
-.hljs-meta,
-.hljs-number,
-.hljs-params,
-.hljs-type {
-	color: var(--types);
-}
-
-.hljs-addition,
-.hljs-bullet,
-.hljs-string,
-.hljs-symbol {
-	color: var(--symbols);
-}
-
-.hljs-section,
-.hljs-title {
-	color: var(--sectionTitle);
-}
-
-.hljs-keyword,
-.hljs-selector-tag {
-	color: var(--keyboards);
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: 700;
 }

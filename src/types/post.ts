@@ -1,5 +1,3 @@
-import { Category } from '@/types/category';
-
 export type Post = {
   totalCount: number;
   id: string;
@@ -10,4 +8,9 @@ export type Post = {
   publishedAt: string;
   updatedAt: string;
   icon: string;
+};
+
+export type Category = {
+  id?: string;
+  name?: string;
 };
