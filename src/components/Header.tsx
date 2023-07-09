@@ -9,7 +9,7 @@ const Header = () => {
       <Inner>
         <div className='flex justify-between gap-4'>
           <Link href='/'>
-            <h1 className='text-4xl font-bold'>oni.log</h1>
+            <p className='text-4xl font-bold'>oni.log</p>
             <p className='mt-2 text-xs'>日々の備忘録ログ</p>
           </Link>
           <ul className='flex items-center gap-4'>
