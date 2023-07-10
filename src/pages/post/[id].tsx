@@ -12,7 +12,6 @@ type Props = {
 };
 
 const PostPage = ({ post }: Props) => {
-	console.log(post.body);
   return (
     <Layout>
       <NextSeo
