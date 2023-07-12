@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { getStaticPaths, getStaticProps } from '@/feature/post/hooks/useGetPost';
 import type { Post, Category } from '@/types/post';
@@ -9,9 +10,17 @@ import { PostCategory } from '@/components/PostCategory';
 
 type Props = {
   post: Post;
+  prevPost: {
+    title: string;
+    link: string;
+  };
+  nextPost: {
+    title: string;
+    link: string;
+  };
 };
 
-const PostPage = ({ post }: Props) => {
+const PostPage = ({ post, prevPost, nextPost }: Props) => {
   return (
     <Layout>
       <NextSeo
@@ -22,7 +31,7 @@ const PostPage = ({ post }: Props) => {
           description: `${post.description}`,
         }}
       />
-      <Inner>
+      <Inner className='grid h-full grid-rows-[1fr,auto] gap-20'>
         <article className='mt-10'>
           <div className='flex items-center gap-4'>
             {post.publishedAt === post.updatedAt ? (
@@ -49,6 +58,28 @@ const PostPage = ({ post }: Props) => {
             }}
           />
         </article>
+        <div
+          className={`flex gap-10 ${!nextPost ? 'justify-end' : ''}${
+            !prevPost ? 'justify-start' : ''
+          }${prevPost && nextPost ? 'justify-between' : ''}`}
+        >
+          {nextPost && (
+            <Link
+              href={nextPost.link}
+              className="inline-flex items-center gap-2 underline transition-opacity before:h-2 before:w-2 before:shrink-0 before:rotate-[-45deg] before:border-l-2 before:border-t-2 before:border-solid before:border-current before:content-[''] hover:opacity-60"
+            >
+              {nextPost.title}
+            </Link>
+          )}
+          {prevPost && (
+            <Link
+              href={prevPost.link}
+              className="inline-flex items-center gap-2 underline transition-opacity after:h-2 after:w-2 after:shrink-0 after:rotate-[135deg] after:border-l-2 after:border-t-2 after:border-solid after:border-current after:content-[''] hover:opacity-60"
+            >
+              {prevPost.title}
+            </Link>
+          )}
+        </div>
       </Inner>
     </Layout>
   );
