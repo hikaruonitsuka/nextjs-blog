@@ -1,10 +1,16 @@
 module.exports = {
   root: true,
-  extends: ['next', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'next',
+    'prettier',
+  ],
+  parser: '@typescript-eslint/parser',
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.js'],
-      parser: '@typescript-eslint/parser',
     },
   ],
 };
