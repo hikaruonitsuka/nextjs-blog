@@ -4,9 +4,9 @@ import { getStaticPaths, getStaticProps } from '@/feature/post/hooks/useGetPost'
 import type { Post, Category } from '@/types/post';
 import Layout from '@/components/Layout';
 import Inner from '@/components/Inner';
-import PublishDate from '@/components/PublishDate';
-import UpdateDate from '@/components/UpdateDate';
+import Date from '@/components/Date';
 import { PostCategory } from '@/components/PostCategory';
+import normalizeTime from '@/utils/normalizeTime';
 
 type Props = {
   post: Post;
@@ -21,6 +21,9 @@ type Props = {
 };
 
 const PostPage = ({ post, prevPost, nextPost }: Props) => {
+  const publishedAt = normalizeTime(post.publishedAt);
+  const updatedAt = normalizeTime(post.updatedAt);
+
   return (
     <Layout>
       <NextSeo
@@ -34,12 +37,12 @@ const PostPage = ({ post, prevPost, nextPost }: Props) => {
       <Inner className='grid h-full grid-rows-[1fr,auto] gap-20'>
         <article className='mt-10'>
           <div className='flex items-center gap-4'>
-            {post.publishedAt === post.updatedAt ? (
-              <PublishDate date={post.publishedAt} />
+            {publishedAt === updatedAt ? (
+              <Date time='publish' date={publishedAt} />
             ) : (
               <>
-                <PublishDate date={post.publishedAt} />
-                <UpdateDate date={post.updatedAt} />
+                <Date time='publish' date={publishedAt} />
+                <Date time='update' date={updatedAt} />
               </>
             )}
           </div>

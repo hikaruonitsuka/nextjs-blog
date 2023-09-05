@@ -1,6 +1,5 @@
 import LinkButton from '@/components/button/LinkButton';
 import Layout from '@/components/Layout';
-import Link from 'next/link';
 
 export const custom404 = () => {
   return (
