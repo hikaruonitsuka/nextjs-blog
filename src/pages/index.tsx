@@ -49,7 +49,6 @@ const Home = ({ post }: Props) => {
                       <Date time='publish' date={publishedAt} />
                     ) : (
                       <div className='flex flex-col gap-1'>
-                        <Date time='publish' date={publishedAt} />
                         <Date time='update' date={updatedAt} />
                       </div>
                     )}
