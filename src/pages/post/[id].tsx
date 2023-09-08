@@ -34,7 +34,7 @@ const PostPage = ({ post, prevPost, nextPost }: Props) => {
           description: `${post.description}`,
         }}
       />
-      <Inner className='grid h-full grid-rows-[1fr,auto] gap-20'>
+      <Inner className='grid h-full grid-cols-[minmax(0,1fr)] grid-rows-[1fr,auto] gap-20'>
         <article className='mt-10'>
           <div className='flex items-center gap-4'>
             {publishedAt === updatedAt ? (
