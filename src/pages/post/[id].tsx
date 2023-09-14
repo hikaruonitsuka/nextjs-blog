@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { getStaticPaths, getStaticProps } from '@/feature/post/hooks/useGetPost';
-import type { Post, Category } from '@/types/post';
+import type { Post } from '@/types/post';
 import Layout from '@/components/Layout';
 import Inner from '@/components/Inner';
 import Date from '@/components/Date';
-import { PostCategory } from '@/components/PostCategory';
 import normalizeTime from '@/utils/normalizeTime';
 
 type Props = {
@@ -50,7 +49,13 @@ const PostPage = ({ post, prevPost, nextPost }: Props) => {
           {post.category.length > 0 && (
             <div className='mt-4 flex flex-wrap items-center gap-2'>
               {post.category.map((category) => (
-                <PostCategory key={category.id} name={category.name} />
+                <Link
+                  href={`/category/${category.id}`}
+                  className='rounded-md bg-secondary-100 p-2 text-xs leading-none transition-opacity hover:opacity-60 dark:bg-secondary-800'
+                  key={category.id}
+                >
+                  {category.name}
+                </Link>
               ))}
             </div>
           )}
