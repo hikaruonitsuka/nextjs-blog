@@ -26,10 +26,10 @@ export const getStaticProps = async (context: any) => {
 
   // コードブロックのシンタックスハイライトを行う
   $('pre code').each((_, elm) => {
-    const language = $(elm).attr('class') || '';
+    // const language = $(elm).attr('class') || '';
     let result: HighlightResult;
 
-		result = hljs.highlightAuto($(elm).text());
+    result = hljs.highlightAuto($(elm).text());
     // if (language == '') {
     //   // 言語が入力なしの場合、自動判定
     // } else {
@@ -45,7 +45,9 @@ export const getStaticProps = async (context: any) => {
   // 編集したHTMLを再設定
   data.body = $.html();
 
-  // 前後記事の取得
+  /**
+   * 前後記事の取得
+   */
   const prev = await client.get({
     endpoint: 'blog',
     queries: {
