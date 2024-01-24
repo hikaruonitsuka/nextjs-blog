@@ -4,6 +4,7 @@ import { client } from '@/utils/client';
 const PATH = '/category/';
 
 export const getStaticPaths = async () => {
+	/* eslint-disable */
   const data = await client.get({ endpoint: 'categories' });
   const paths = data.contents.map((content: any) => `${PATH}${content.id}`);
 

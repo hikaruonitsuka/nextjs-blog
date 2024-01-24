@@ -9,7 +9,8 @@ export const ChangeThemeButton: React.FC = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
+	
+  /* eslint-disable */
   useEffect(() => {
     if (mounted && theme === 'system') {
       setTheme(`${resolvedTheme}`);

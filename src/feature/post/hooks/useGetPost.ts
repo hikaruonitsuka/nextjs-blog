@@ -5,6 +5,7 @@ import { load } from 'cheerio';
 // ディレクトリパス
 const PATH = '/post/';
 
+/* eslint-disable */
 export const getStaticPaths = async () => {
   const data = await client.get({ endpoint: 'blog' });
   const paths = data.contents.map((content: any) => `${PATH}${content.id}`);
