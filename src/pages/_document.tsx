@@ -11,7 +11,10 @@ const Document = () => {
           href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap'
           rel='stylesheet'
         />
-				<meta name="google-site-verification" content="bwWuDvACPi3UMIujXGkeCx-DP5ZW_q8ju59Da5_p5io" />
+        <meta
+          name='google-site-verification'
+          content='bwWuDvACPi3UMIujXGkeCx-DP5ZW_q8ju59Da5_p5io'
+        />
       </Head>
       <body className='font-body text-body-black dark:bg-primary-950 dark:text-body-white'>
         <Main />

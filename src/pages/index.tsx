@@ -1,4 +1,3 @@
-import { GetStaticProps, NextPage } from 'next';
 import type { Post } from '@/types/post';
 import { NextSeo } from 'next-seo';
 import { getStaticProps } from '@/feature/index/hooks/useGetPost';

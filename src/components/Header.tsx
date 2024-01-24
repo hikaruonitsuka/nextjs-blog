@@ -1,6 +1,6 @@
 import Inner from './Inner';
 import { FaGithub } from 'react-icons/fa';
-import { FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter } from 'react-icons/fa6';
 import ChangeThemeButton from './button/ChangeThemeButton';
 import Link from 'next/link';
 
