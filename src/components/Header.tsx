@@ -1,5 +1,6 @@
 import Inner from './Inner';
-import { FaTwitter, FaGithub } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 import ChangeThemeButton from './button/ChangeThemeButton';
 import Link from 'next/link';
 
@@ -21,7 +22,7 @@ const Header = () => {
                 rel='noopener noreferrer'
                 aria-label='サイト制作者のTwitterへ'
               >
-                <FaTwitter size={'18px'} />
+                <FaXTwitter size={'18px'} />
               </a>
             </li>
             <li className='flex'>
