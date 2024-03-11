@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import PostDate from '@/components/PostDate';
 import normalizeTime from '@/utils/normalizeTime';
-import { getList } from '@/libs/microcms';
+import { getList } from '@/lib/microcms';
 
 const Home = async () => {
   const { contents } = await getList();
