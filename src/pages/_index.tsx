@@ -1,11 +1,11 @@
-import type { Post } from '@/types/post';
+import type { Post } from '@/types/Blog';
 import { NextSeo } from 'next-seo';
 import { getStaticProps } from '@/feature/index/hooks/useGetPost';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
 import Inner from '@/components/Inner';
 import { SITE_NAME } from '@/config';
-import Date from '@/components/Date';
+import Date from '@/components/PostDate';
 import normalizeTime from '@/utils/normalizeTime';
 
 type Props = { post: Post[] };
