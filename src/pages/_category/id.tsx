@@ -1,35 +1,24 @@
 // import type { Post } from '@/types/Blog';
 // import { NextSeo } from 'next-seo';
-// import { getStaticProps } from '@/feature/index/hooks/useGetPost';
+// import { getStaticPaths, getStaticProps } from '@/feature/category/hooks/useGetPost';
 // import Link from 'next/link';
 // import Layout from '@/components/Layout';
 // import Inner from '@/components/Inner';
-// import { SITE_NAME } from '@/config';
 // import Date from '@/components/PostDate';
 // import normalizeTime from '@/utils/normalizeTime';
 
-// type Props = { post: Post[] };
-
-// const metaTags = {
-//   title: 'HOME',
-//   ogTitle: SITE_NAME,
-//   description: 'おにの備忘録ブログです',
+// type Props = {
+//   post: Post[];
+//   categoryName: string;
 // };
 
-// const Home = ({ post }: Props) => {
+// const CategoryPage = ({ post, categoryName }: Props) => {
 //   return (
 //     <Layout>
-//       <NextSeo
-//         title={metaTags.title}
-//         description={metaTags.description}
-//         openGraph={{
-//           type: 'website',
-//           title: `${metaTags.ogTitle}`,
-//           description: `${metaTags.description}`,
-//         }}
-//       />
+//       <NextSeo title={categoryName} />
 //       {post.length > 0 ? (
 //         <Inner>
+//           <h1 className='text-xl font-bold'>{categoryName}に関連する記事一覧</h1>
 //           <div className='mt-8 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4 sm:grid-cols-3 sm:gap-8'>
 //             {post.map((post) => {
 //               const publishedAt = normalizeTime(post.publishedAt);
@@ -66,6 +55,6 @@
 //   );
 // };
 
-// export default Home;
+// export default CategoryPage;
 
-// export { getStaticProps };
+// export { getStaticProps, getStaticPaths };
