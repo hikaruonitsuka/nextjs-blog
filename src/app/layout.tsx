@@ -1,8 +1,10 @@
-import { ThemeProvider } from 'next-themes';
-import { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
+import { Metadata } from 'next';
 import '@/styles/globals.scss';
 import { BASE_URL, SITE_NAME, TWITTER_USER_ACCOUNT } from '@/config';
+import Layout from '@/components/Layout';
+import Inner from '@/components/Inner';
+import { ThemeProvider } from '@/components/Theme-provider';
 
 const metaTags = {
   title: 'HOME',
@@ -11,6 +13,7 @@ const metaTags = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://${process.env.BASE_URL}`),
   title: {
     default: SITE_NAME,
     template: `%s - ${SITE_NAME}`,
@@ -36,31 +39,26 @@ export const metadata: Metadata = {
   },
 };
 
-{
-  /* <NextSeo
-        title={metaTags.title}
-        description={metaTags.description}
-        openGraph={{
-          type: 'website',
-          title: `${metaTags.ogTitle}`,
-          description: `${metaTags.description}`,
-        }}
-      /> */
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider attribute='class' enableSystem={true}>
-      <Analytics />
-      <html lang='ja'>
-        <body className='font-body text-body-black dark:bg-primary-950 dark:text-body-white'>
-          {children}
-        </body>
-      </html>
-    </ThemeProvider>
+    <html lang='ja' suppressHydrationWarning>
+      <body className='font-body text-body-black dark:bg-primary-950 dark:text-body-white'>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Layout>
+            <Inner>{children}</Inner>
+          </Layout>
+        </ThemeProvider>
+        <Analytics />
+      </body>
+    </html>
   );
 }
