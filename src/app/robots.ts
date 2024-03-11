@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
 
 // # Host
 // Host: https://oni-log.vercel.app
@@ -10,5 +10,5 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     sitemap: 'https://oni-log.vercel.app/sitemap.xml',
-  }
+  };
 }
