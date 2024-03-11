@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://oni-log.vercel.app
-
-# Sitemaps
-Sitemap: https://oni-log.vercel.app/sitemap.xml
