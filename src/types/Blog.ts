@@ -1,4 +1,6 @@
-export type Post = {
+import { MicroCMSDate } from 'microcms-js-sdk';
+
+export type Blog = {
   totalCount: number;
   id: string;
   title: string;
@@ -8,7 +10,7 @@ export type Post = {
   publishedAt: string;
   updatedAt: string;
   icon: string;
-};
+} & MicroCMSDate;
 
 export type Category = {
   id?: string;

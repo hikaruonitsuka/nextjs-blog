@@ -6,7 +6,7 @@ type Props = {
   time: 'publish' | 'update';
 };
 
-export const Date = ({ date, time }: Props) => {
+export const PostDate = ({ date, time }: Props) => {
   return (
     <span className='flex items-center gap-2 text-xs leading-none'>
       {time === 'publish' ? <IoMdTime /> : <MdUpdate />}
@@ -15,4 +15,4 @@ export const Date = ({ date, time }: Props) => {
   );
 };
 
-export default Date;
+export default PostDate;
