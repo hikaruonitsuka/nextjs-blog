@@ -1,36 +1,28 @@
+import { BASE_URL } from '@/config';
+import { getList } from '@/lib/microcms';
 import { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  if (!process.env.BASE_URL) {
+    throw new Error('BASE_URL is not defined in the environment variables');
+  }
+
+  const { contents } = await getList();
+  const lastModified = new Date();
+
+  const staticPaths = [
     {
-      url: 'https://oni-log.vercel.app',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: 'https://oni-log.vercel.app/post/javascript-methods',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: 'https://oni-log.vercel.app/post/branching-objects',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: 'https://oni-log.vercel.app/post/next-seo',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: 'https://oni-log.vercel.app/post/create-blog',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
+      url: BASE_URL,
+      lastModified,
     },
   ];
+
+  const dynamicPaths = contents.map((post) => {
+    return {
+      url: `${BASE_URL}/post/${post.id}`,
+      lastModified,
+    };
+  });
+
+  return [...staticPaths, ...dynamicPaths];
 }
